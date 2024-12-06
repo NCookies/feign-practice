@@ -1,5 +1,6 @@
 package com.ncookie.feign.feign.config;
 
+import com.ncookie.feign.feign.decoder.DemoFeignErrorDecoder;
 import com.ncookie.feign.feign.interceptor.DemoFeignInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,11 @@ public class DemoFeignConfig {
     @Bean
     public DemoFeignInterceptor feignInterceptor() {
         return DemoFeignInterceptor.of();
+    }
+
+    @Bean
+    public DemoFeignErrorDecoder demoeErrorDecoder() {
+        return new DemoFeignErrorDecoder();
     }
 
 }

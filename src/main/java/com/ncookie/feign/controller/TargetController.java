@@ -2,6 +2,8 @@ package com.ncookie.feign.controller;
 
 import com.ncookie.feign.common.dto.BaseRequestInfo;
 import com.ncookie.feign.common.dto.BaseResponseInfo;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,6 +31,11 @@ public class TargetController {
                 .age(body.getAge())
 
                 .build();
+    }
+
+    @GetMapping("/error")
+    public ResponseEntity<BaseResponseInfo> demoErrorDecoder() {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
 }
